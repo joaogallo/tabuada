@@ -67,16 +67,16 @@ def jogar_tabuada(operacoes: list, lower_bound: int, upper_bound: int):
                     repete = True
                     continue
             elif int(resposta_usuario) == resposta:
-                print("Resposta correta!")
+                print("Resposta correta!\n")
                 corretas += 1
             else:
-                print(f"Incorreto. A resposta correta era {resposta}.")
+                print(f"Incorreto. A resposta correta era {resposta}.\n")
                 erradas += 1
                 tabuada.insert(
                     0, [operador, min, max]
                 )  # Coloca a conta de volta no início
         except Exception:
-            print("Resposta inválida")
+            print("Resposta inválida\n")
             repete = True
             continue
 
@@ -93,5 +93,27 @@ def jogar_tabuada(operacoes: list, lower_bound: int, upper_bound: int):
 
 
 # Descomente a linha abaixo para executar o jogo
-jogar_tabuada(["-"], 1, 10)
+simbolo_oper = ""
+operacoes = []
+while simbolo_oper != "" or len(operacoes) == 0:
+    if simbolo_oper not in ["+", "-", "*", "/"]:
+        print("A operação deve ser +, -, x ou /\n")
+    elif simbolo_oper in operacoes:
+        print("Operação já cadastrada\n")
+    else:
+        operacoes.append(simbolo_oper)
+        oper_list = ""
+        for oper in operacoes:
+            oper_list = f"{oper_list}{oper}, "
+        print(f"\nOperações selecionadas: [{oper_list[:-2]}]\n")
+
+    simbolo_oper = input(
+        "Digite as operações que deseja (+, -, x, /)\n[ENTER] para continuar\n"
+    )
+
+    if simbolo_oper in ["x", "X"]:
+        simbolo_oper = "*"
+
+
+jogar_tabuada(operacoes, 1, 10)
 # print(gerar_tabuada(["+", "-", "*"], 1, 10))
