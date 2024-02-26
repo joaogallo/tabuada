@@ -56,7 +56,7 @@ def jogar_tabuada(operacoes: list, lower_bound: int, upper_bound: int):
                     segundos = round(segundos - 60 * minutos)
                     interrompe_fatos = str.upper(
                         input(
-                            f"""Você já respondeu {corretas + erradas} questões em {minutos} minutos e {segundos} segundos.
+                            f"""\nVocê já respondeu {corretas + erradas} questões em {minutos} minutos e {segundos} segundos.
     Deseja parar (S/N)?"""
                         )
                     )
@@ -86,13 +86,12 @@ def jogar_tabuada(operacoes: list, lower_bound: int, upper_bound: int):
     segundos = round(segundos - 60 * minutos)
 
     print(
-        f"""Parabéns! Você completou a tabuada em {minutos} minutos e {segundos} segundos.
+        f"""\n\nParabéns! Você completou a tabuada em {minutos} minutos e {segundos} segundos.
         Certas: {corretas}
         Erradas: {erradas}"""
     )
 
 
-# Descomente a linha abaixo para executar o jogo
 simbolo_oper = ""
 operacoes = []
 while simbolo_oper != "" or len(operacoes) == 0:
@@ -116,4 +115,6 @@ while simbolo_oper != "" or len(operacoes) == 0:
 
 
 jogar_tabuada(operacoes, 1, 10)
+
+exit_code = input("\n\nPressione [ENTER] para encerrar")
 # print(gerar_tabuada(["+", "-", "*"], 1, 10))
