@@ -1,7 +1,3 @@
-Sure, I can help you create a README file for your GitHub project. This file will provide necessary information about your project, including a brief description, how to install and run the application, and how to contribute. Here's a sample template:
-
----
-
 # Kids Math Trainer
 
 ## Introduction
