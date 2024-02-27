@@ -1,6 +1,6 @@
 import random
 import time
-from getkey import key
+#+from getkey import key
 
 
 def gerar_tabuada(operacoes: list, lower_bound: int, upper_bound: int):
@@ -113,8 +113,19 @@ while simbolo_oper != "" or len(operacoes) == 0:
     if simbolo_oper in ["x", "X"]:
         simbolo_oper = "*"
 
+limites = False
+while limites is not True:
+    try:
+        limite = input("Digite o menor número: ")
+        inicio = int(limite) 
 
-jogar_tabuada(operacoes, 1, 10)
+        limite = input("Digite o maior número: ")
+        fim = int(limite) 
+        limites = True
+    except Exception:
+        print(f"{limite} não é um número")
+
+jogar_tabuada(operacoes, inicio, fim)
 
 exit_code = input("\n\nPressione [ENTER] para encerrar")
 # print(gerar_tabuada(["+", "-", "*"], 1, 10))
