@@ -8,7 +8,7 @@ def gerar_tabuada(operacoes: list, lower_bound: int, upper_bound: int):
         (o, i, j)
         for o in operacoes
         for i in range(lower_bound, upper_bound + 1)
-        for j in range(lower_bound, upper_bound + 1)
+        for j in range(0, 10 + 1)
     ]
 
     random.shuffle(tabuada)
