@@ -21,11 +21,11 @@ def operacao(operacao: str, x: int, y: int):
         pergunta = f"{x} {operacao} {y} = "
         resposta = x + y if operacao in ["+"] else x * y
     elif operacao in ["-"]:
-        pergunta = f"{x + y} - {y} = "
-        resposta = x
+        pergunta = f"{x + y} - {x} = "
+        resposta = y
     elif operacao in ["/"]:
-        pergunta = f"{x * y} / y = "
-        resposta = x
+        pergunta = f"{x * y} / x = "
+        resposta = y
     else:
         raise ValueError("Operação inválida")
 
