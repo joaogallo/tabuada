@@ -3,11 +3,11 @@ import time
 #+from getkey import key
 
 
-def gerar_tabuada(operacoes: list, lower_bound: int, upper_bound: int):
+def gerar_tabuada(operacoes: list, numeros: list):
     tabuada = [
         (o, i, j)
         for o in operacoes
-        for i in range(lower_bound, upper_bound + 1)
+        for i in numeros
         for j in range(0, 10 + 1)
     ]
 
@@ -32,8 +32,8 @@ def operacao(operacao: str, x: int, y: int):
     return pergunta, resposta
 
 
-def jogar_tabuada(operacoes: list, lower_bound: int, upper_bound: int):
-    tabuada = gerar_tabuada(operacoes, lower_bound, upper_bound)
+def jogar_tabuada(operacoes: list, numeros: list):
+    tabuada = gerar_tabuada(operacoes, numeros)
     inicio = time.time()
     corretas = 0
     erradas = 0
@@ -113,19 +113,23 @@ while simbolo_oper != "" or len(operacoes) == 0:
     if simbolo_oper in ["x", "X"]:
         simbolo_oper = "*"
 
-limites = False
-while limites is not True:
+numeros = []
+numero = ""
+while numero != "" or len(numeros) == 0:
+    if len(numeros) > 0:
+        print(f"Numeros: {numeros}")
     try:
-        limite = input("Digite o menor número: ")
-        inicio = int(limite) 
-
-        limite = input("Digite o maior número: ")
-        fim = int(limite) 
-        limites = True
+        entrada = input("Digite o número: ")
+        if entrada == "":
+            numero = entrada
+            continue
+        else:
+            numero = int(entrada)
+            numeros.append(numero)
     except Exception:
-        print(f"{limite} não é um número")
+        print(f"{entrada} não é um número")
 
-jogar_tabuada(operacoes, inicio, fim)
+jogar_tabuada(operacoes, numeros)
 
 exit_code = input("\n\nPressione [ENTER] para encerrar")
 # print(gerar_tabuada(["+", "-", "*"], 1, 10))
