@@ -24,7 +24,7 @@ def operacao(operacao: str, x: int, y: int):
         pergunta = f"{x + y} - {x} = "
         resposta = y
     elif operacao in ["/"]:
-        pergunta = f"{x * y} / x = "
+        pergunta = f"{x * y} / {x} = "
         resposta = y
     else:
         raise ValueError("Operação inválida")
